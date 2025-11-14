@@ -16,7 +16,7 @@
     background: linear-gradient(135deg, #fff8c6, #ffe082, #ffe7a1);
     overflow-x: hidden;
     min-height: 100vh;
-    padding-bottom: 40px;
+    padding-bottom: 60px;
   }
 
   /* MUSIC BUTTON */
@@ -26,15 +26,15 @@
     right: 15px;
     background: #ffca28;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 55px;
+    height: 55px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 20px;
+    font-size: 22px;
     cursor: pointer;
     box-shadow: 0 5px 15px rgba(255, 193, 7, 0.4);
-    z-index: 999;
+    z-index: 9999;
   }
 
   /* MAIN CONTAINER */
@@ -56,33 +56,42 @@
     font-weight: bold;
   }
 
-  /* GIF */
-  .gif {
+  /* QUOTE */
+  .quote {
     text-align: center;
-    margin-top: 20px;
+    font-size: clamp(18px, 4vw, 24px);
+    margin: 25px 0;
+    font-family: 'Dancing Script', cursive;
+    color: #5d4037;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
   }
 
-  .gif img {
-    width: 140px;
-    max-width: 40%;
+  @keyframes fadeIn {
+    to { opacity: 1; }
   }
 
-  /* SLIDESHOW */
-  .slideshow {
-    margin-top: 25px;
+  /* POLAROID PHOTO */
+  .polaroid {
     text-align: center;
+    margin: 25px 0;
   }
-  .slideshow img {
+
+  .polaroid img {
     width: 100%;
-    max-width: 500px;
-    height: auto;
+    max-width: 420px;
     border-radius: 15px;
-    box-shadow: 0 0 25px rgba(255,193,7,0.4);
-    animation: fade 2s ease-in-out;
+    box-shadow: 0 10px 25px rgba(255,193,7,0.4);
+    transform: rotate(-2deg);
+    animation: photoFade 2s ease-in-out;
   }
-  @keyframes fade { from{opacity:0;} to{opacity:1;} }
 
-  /* HANDWRITTEN LETTER */
+  @keyframes photoFade {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  /* EMOTIONAL LETTER */
   .letter {
     margin-top: 30px;
     font-family: 'Dancing Script', cursive;
@@ -90,7 +99,7 @@
     line-height: 1.6;
     color: #5d4037;
     white-space: pre-wrap;
-    animation: handwritten 7s steps(200) 1;
+    animation: handwritten 8s steps(200) 1;
     overflow: hidden;
     border-right: 3px solid #ffb300;
     padding-right: 8px;
@@ -106,7 +115,7 @@
     text-align: center;
     margin-top: 30px;
     font-size: clamp(40px, 10vw, 60px);
-    animation: beat 1.2s infinite;
+    animation: beat 1.3s infinite;
   }
 
   @keyframes beat {
@@ -114,7 +123,7 @@
     50% { transform: scale(1.3); }
   }
 
-  /* BUTTON */
+  /* ANGRY BUTTON */
   .hate-btn {
     display: block;
     margin: 35px auto 0;
@@ -135,7 +144,30 @@
     transform: scale(1.05);
   }
 
-  /* PARTICLES / BUTTERFLIES */
+  /* HOLD REVEAL */
+  #holdReveal {
+    display: none;
+    margin-top: 30px;
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(20px, 6vw, 28px);
+    color: #5d4037;
+    padding: 15px;
+    border-left: 4px solid #ffca28;
+  }
+
+  /* FINAL MESSAGE */
+  #finalMessage {
+    text-align: center;
+    margin-top: 40px;
+    font-size: clamp(18px,5vw,24px);
+    color: #ff6f00;
+    font-family: 'Dancing Script';
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+  }
+
+  /* PARTICLES */
   .particle {
     position: fixed;
     animation: floatUp 8s linear infinite;
@@ -147,7 +179,6 @@
     0% { transform: translateY(0); opacity: 1; }
     100% { transform: translateY(-1200px); opacity: 0; }
   }
-
 </style>
 </head>
 
@@ -168,9 +199,11 @@
     if (music.paused) {
       music.play();
       musicBtn.innerHTML = "🔊";
+      console.log("[Tracker] Music Played");
     } else {
       music.pause();
       musicBtn.innerHTML = "🎵";
+      console.log("[Tracker] Music Paused");
     }
   };
 </script>
@@ -187,35 +220,44 @@
     document.body.appendChild(p);
     setTimeout(() => p.remove(), 8000);
   }
-  setInterval(createParticle, 500);
+  setInterval(createParticle, 700);
 </script>
 
 <div class="container">
 
   <div class="title">💛 For You… Even If You’re Angry Enough to Kill Me 💛</div>
 
-  <!-- CUTE GIF -->
-  <div class="gif">
-    <img src="https://media.tenor.com/-QJ11d0GQIMAAAAj/bubu-dudu-love.gif">
+  <!-- QUOTE -->
+  <div class="quote">“You're the only chaos I'd choose again.”</div>
+
+  <!-- POLAROID PHOTO -->
+  <div class="polaroid">
+    <img src="photo1.jpeg" onclick="console.log('[Tracker] Photo 1 viewed')">
   </div>
 
-  <!-- SLIDESHOW -->
-  <div class="slideshow">
-    <img id="slideImg" src="photo1.jpeg">
+  <!-- QUOTE -->
+  <div class="quote">“Some people feel like home without trying.”</div>
+
+  <div class="polaroid">
+    <img src="photo2.jpg" onclick="console.log('[Tracker] Photo 2 viewed')">
   </div>
 
-  <script>
-    const slides = ["photo1.jpeg", "photo2.jpg", "photo3.jpg", "photo4.jpg"];
-    let idx = 0;
+  <!-- QUOTE -->
+  <div class="quote">“I miss the version of me that smiled because of you.”</div>
 
-    setInterval(() => {
-      idx = (idx + 1) % slides.length;
-      document.getElementById("slideImg").src = slides[idx];
-    }, 2500);
-  </script>
+  <div class="polaroid">
+    <img src="photo3.jpg" onclick="console.log('[Tracker] Photo 3 viewed')">
+  </div>
 
-  <!-- HANDWRITTEN LETTER -->
-  <div class="letter">
+  <!-- QUOTE -->
+  <div class="quote">“You’re the softest ache I don’t want to lose.”</div>
+
+  <div class="polaroid">
+    <img src="photo4.jpg" onclick="console.log('[Tracker] Photo 4 viewed')">
+  </div>
+
+  <!-- EMOTIONAL LETTER -->
+  <div class="letter" onclick="console.log('[Tracker] Letter Read')">
 Dear Juliet,
 
 I know you're angry.
@@ -229,6 +271,7 @@ I messed up.
 I slipped.
 I disrespected you.
 I hurt you.
+
 And if I could undo every moment that made you feel less valued,
 I swear I would.
 
@@ -236,9 +279,12 @@ But I also want you to know this…
 
 I never meant to lose you.
 I never meant to break what we had.
-And I'm standing here,
-stupid, emotional, guilty,
-still hoping you’ll give me that one last chance.
+
+I'm standing here,
+stupid,
+emotional,
+guilty,
+still hoping you'll give me one last real chance.
 
 Because losing you?
 Feels worse than anything else.
@@ -248,20 +294,61 @@ For everything. 💛
   </div>
 
   <!-- HEARTBEAT -->
-  <div class="heartbeat">💛</div>
+  <div class="heartbeat" onclick="console.log('[Tracker] Heartbeat section viewed')">💛</div>
 
-  <!-- IF YOU STILL HATE ME BUTTON -->
-  <div class="hate-btn" onclick="hateTap()">Tap here if you still hate me 😭</div>
+  <!-- ANGRY BUTTON -->
+  <div class="hate-btn" 
+       onmousedown="startHold()" 
+       onmouseup="stopHold()" 
+       ontouchstart="startHold()" 
+       ontouchend="stopHold()"
+       onclick="tapAngry()">
+       Tap here if you're still angry 😭
+  </div>
 
   <script>
     let tapCount = 0;
-    function hateTap() {
+    let holdTimer;
+
+    function tapAngry() {
       tapCount++;
+      console.log("[Tracker] Angry button tapped");
+
       if (tapCount === 1) alert("Okay okay I deserve it 😭");
       if (tapCount === 2) alert("But at least talk to me na, please? 💛");
       if (tapCount === 3) alert("Fine… break my head… but also forgive me 🥺💛");
-      if (tapCount === 4) window.location.href = "https://wa.me/91XXXXXXXXXX?text=Fine%20I'm%20talking%20to%20you";
     }
+
+    function startHold() {
+      holdTimer = setTimeout(() => {
+        document.getElementById("holdReveal").style.display = "block";
+        console.log("[Tracker] Hold Reveal Unlocked");
+      }, 3000);
+    }
+
+    function stopHold() {
+      clearTimeout(holdTimer);
+    }
+  </script>
+
+  <!-- HOLD REVEAL MESSAGE -->
+  <div id="holdReveal">
+Galti hui hai mujhse, mai jaanta hoon, mai maanta hoon…  
+magar ek aakhiri mauka chahta hoon sab sudhaarne ka, sab sahi karne ka…  
+please 😞
+  </div>
+
+  <!-- FINAL MESSAGE -->
+  <div id="finalMessage">Agar you have reached till here… just know you and your actions mean the world to me 💛</div>
+
+  <script>
+    window.addEventListener("scroll", () => {
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+        document.getElementById("finalMessage").style.opacity = 1;
+        console.log("[Tracker] Final Bottom Message Reached");
+      }
+      console.log("[Tracker] Scroll detected");
+    });
   </script>
 
 </div>
