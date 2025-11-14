@@ -1,70 +1,223 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>I'm sorry ❤️</title>
+  <meta charset="UTF-8">
+  <title>For You... 💛</title>
   <style>
     body {
       margin: 0;
       padding: 0;
-      background: #fff0f3;
       font-family: 'Poppins', sans-serif;
-      text-align: center;
+      background: linear-gradient(135deg, #fff9c4, #ffe082, #ffecb3);
       overflow-x: hidden;
+      color: #4e342e;
     }
-    h1 {
-      margin-top: 40px;
-      font-size: 32px;
-      color: #ff4d6d;
-    }
-    p {
-      font-size: 18px;
-      padding: 0 20px;
-    }
-    img {
-      width: 85%;
-      max-width: 300px;
-      margin: 15px;
-      border-radius: 15px;
-      box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
-    }
-    .heart {
+
+    /* Glowing hearts floating */
+    .float-heart {
       position: fixed;
-      bottom: -10px;
-      font-size: 20px;
-      animation: floatUp 4s linear infinite;
+      bottom: -20px;
+      color: #ff6f61;
+      font-size: 22px;
+      animation: floatUp 7s linear infinite;
+      opacity: 0.8;
     }
+
     @keyframes floatUp {
-      from { transform: translateY(0); opacity: 1; }
-      to { transform: translateY(-800px); opacity: 0; }
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(-1000px) rotate(25deg); opacity: 0; }
+    }
+
+    /* Main container */
+    .container {
+      max-width: 700px;
+      margin: 50px auto;
+      background: rgba(255,255,255,0.9);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(255,193,7,0.5);
+      backdrop-filter: blur(4px);
+      animation: pop 0.8s ease-out;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .title {
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      color: #ff6f00;
+      margin-bottom: 30px;
+    }
+
+    /* Typing effect */
+    .typing {
+      font-size: 18px;
+      white-space: pre-wrap;
+      border-right: 3px solid #ff6f00;
+      width: 100%;
+      overflow: hidden;
+      animation: typing 5s steps(100), blink 0.75s infinite step-end alternate;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    .section {
+      margin-top: 30px;
+      background: #fff8e1;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(255,193,7,0.3);
+      animation: fadeIn 1.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .final-btn {
+      display: block;
+      margin: 40px auto 0;
+      text-align: center;
+      background: #ffca28;
+      padding: 15px 25px;
+      border-radius: 12px;
+      font-size: 18px;
+      color: #4e342e;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 6px 15px rgba(255,193,7,0.4);
+      text-decoration: none;
+    }
+
+    .final-btn:hover {
+      background: #ffb300;
+      transform: translateY(-3px);
     }
   </style>
 </head>
 
 <body>
-  <h1>I'm Sorry 💕</h1>
-  <p>
-    I know you’re upset… and I know I messed up.
-    But your smile means the world to me.
-    I made this for you because you deserve effort, love, and honesty.
-    Please forgive me ❤️
-  </p>
 
-  <img src="photo1.jpeg">
-  <img src="photo2.jpg">
-  <img src="photo3.jpg">
-  <img src="photo4.jpg">
-
+  <!-- Floating hearts -->
   <script>
     function createHeart() {
       const heart = document.createElement("div");
-      heart.className = "heart";
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.animationDuration = 3 + Math.random() * 2 + "s";
-      heart.innerHTML = "💖";
+      heart.className = "float-heart";
+      heart.innerText = "💛";
+      heart.style.left = Math.random() * window.innerWidth + "px";
+      heart.style.fontSize = (20 + Math.random() * 20) + "px";
       document.body.appendChild(heart);
-      setTimeout(() => heart.remove(), 5000);
+      setTimeout(() => heart.remove(), 7000);
     }
-    setInterval(createHeart, 500);
+    setInterval(createHeart, 700);
   </script>
+
+  <div class="container">
+    <div class="title">💛 For You… Even If You're Angry Enough to Kill Me 💛</div>
+
+    <div class="typing" id="typing-text">
+      Wait… 
+      If you’re seeing this page,
+      it means you actually typed the password…
+      
+      That alone means something.
+      And before you scroll…
+
+      I want to say this properly.
+    </div>
+
+    <div class="section">
+      <h3>💛 I Messed Up</h3>
+      <p>
+        The truth is… I hurt you.  
+        Not once. Not twice.  
+        Bro I’ve probably done Ph.D. level mistakes at this point.  
+        You had every reason to be angry…  
+        Every reason to ignore me…  
+        Every reason to hate me.  
+        <br><br>
+        And still… here you are.
+      </p>
+    </div>
+
+    <div class="section">
+      <h3>💛 You Didn’t Deserve My Immaturity</h3>
+      <p>
+        You deserved respect.  
+        You deserved effort.  
+        You deserved peace.  
+        <br>
+        Instead, I gave you stress.  
+        I gave you frustration.  
+        I gave you reasons to doubt me.  
+        <br><br>
+        That’s on me.  
+        Fully on me.  
+      </p>
+    </div>
+
+    <div class="section">
+      <h3>💛 But Listen… Just Once</h3>
+      <p>
+        No excuses.  
+        No justifications.  
+        No gaslighting.  
+        No “but you did this… you did that”.  
+        <br><br>
+        THIS IS ME SAYING:
+        <br>
+        I am sorry.  
+        From my heart.  
+        From the stupid brain that caused all this.  
+        From the version of me that is still learning how not to be an idiot.
+      </p>
+    </div>
+
+    <div class="section">
+      <h3>💛 I Don’t Want to Lose You</h3>
+      <p>
+        Not as Juliet.  
+        Not as Jyoti.  
+        Not as the girl who makes fun of me.  
+        Not as the girl who gets angry but still cares.  
+        <br><br>
+        I don’t want to lose YOU.  
+        The real you.  
+        The sweet, stubborn, dramatic, firecracker you.  
+      </p>
+    </div>
+
+    <div class="section">
+      <h3>💛 Last Thing… Then I’ll Shut Up</h3>
+      <p>
+        I’m not asking you to forgive me right now.  
+        I’m not asking you to smile instantly.  
+        I’m not asking you to forget everything.  
+        <br><br>
+        I JUST WANT ONE THING:
+        <br>
+        A chance.  
+        A real one.  
+        To show I can treat you the way you deserve.  
+      </p>
+    </div>
+
+    <a class="final-btn" href="https://wa.me/91XXXXXXXXXX?text=Fine%20I%27m%20talking%20to%20you">Okay… let's talk 💛</a>
+
+  </div>
+
 </body>
 </html>
