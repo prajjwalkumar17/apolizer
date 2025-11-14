@@ -1,26 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>For You ❤️</title>
+  <title>For You 💛</title>
   <style>
     body {
       font-family: 'Poppins', sans-serif;
-      background: #ffe6ea;
       margin: 0;
       height: 100vh;
-
-      /* Center everything */
+      background: linear-gradient(135deg, #fff9c4, #ffe082, #ffecb3);
       display: flex;
       justify-content: center;
       align-items: center;
+      overflow: hidden;
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: absolute;
+      color: #ff6f61;
+      font-size: 22px;
+      animation: floatUp 6s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(-800px) rotate(20deg); opacity: 0; }
     }
 
     .container {
       text-align: center;
-      background: white;
+      background: rgba(255, 255, 255, 0.9);
       padding: 40px;
-      border-radius: 15px;
-      box-shadow: 0 0 20px rgba(255, 77, 109, 0.3);
+      border-radius: 18px;
+      box-shadow: 0 0 30px rgba(255, 204, 0, 0.6);
+      width: 320px;
+      backdrop-filter: blur(4px);
+      animation: pop 0.8s ease;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0.7); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    h2 {
+      color: #ff6f00;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 15px;
+      color: #6d4c41;
     }
 
     input {
@@ -29,27 +60,53 @@
       border: 1px solid #aaa;
       width: 250px;
       font-size: 16px;
+      margin-top: 10px;
     }
 
     button {
       padding: 12px 20px;
-      margin-top: 15px;
+      margin-top: 18px;
       border: none;
-      background: #ff4d6d;
-      color: white;
+      background: #ffca28;
+      color: #6d4c41;
       border-radius: 8px;
       font-size: 16px;
       cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(255, 193, 7, 0.4);
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background: #ffb300;
+      transform: translateY(-2px);
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
-    <h2>💖 A special page… only for you 💖</h2>
-    <p>Please enter the name you have in my contacts password:</p>
 
-    <input type="password" id="password" placeholder="Enter password">
+  <!-- Floating hearts -->
+  <script>
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerText = "💛";
+      heart.style.left = Math.random() * window.innerWidth + "px";
+      heart.style.bottom = "-20px";
+      heart.style.fontSize = (20 + Math.random() * 15) + "px";
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 6000);
+    }
+    setInterval(createHeart, 800);
+  </script>
+
+  <div class="container">
+    <h2>💛 A Sweet Little Page… Just for You 💛</h2>
+    <p>Enter the name you saved me with in your contacts:</p>
+
+    <input type="password" id="password" placeholder="Enter password 💛">
     <br>
     <button onclick="checkPassword()">Unlock</button>
   </div>
@@ -58,13 +115,13 @@
     let attempts = 0;
 
     const messages = [
-      "Wrong password 🥺 Try again?",
-      "Are you sure you're my ______ (try to remember!) on my contact list ? 😔",
-      "Think again something ending with a heart imoji…",
-      "Last try before I cry 😭",
-      "Still wrong… my heart is breaking 💔",
-      "Thora dimag lagao!! contact me kya saved hai.... ",
-      "ab kya bolun, call krke hi puch lo..... "
+      "Nope 🥺 Try again my sunshine?",
+      "Think carefully, what am I saved as? 💛",
+      "Little hint: something with love… 💕",
+      "Arre yaar 😭 Phirse galat!",
+      "My yellow flower, try again 💛",
+      "Thoda dimag lagao, it's cute! 😤",
+      "Bas ab call karke puch hi lo 😭"
     ];
 
     function checkPassword() {
@@ -80,5 +137,6 @@
       }
     }
   </script>
+
 </body>
 </html>
