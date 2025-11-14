@@ -2,25 +2,30 @@
 <html>
 <head>
   <title>For You 💛</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
-      height: 100vh;
+      padding: 0;
       background: linear-gradient(135deg, #fff9c4, #ffe082, #ffecb3);
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      overflow: hidden;
+      overflow-x: hidden;
     }
 
     /* Floating hearts */
     .heart {
-      position: absolute;
+      position: fixed;
       color: #ff6f61;
       font-size: 22px;
       animation: floatUp 6s linear infinite;
       opacity: 0.8;
+      z-index: -1;
     }
 
     @keyframes floatUp {
@@ -30,13 +35,15 @@
 
     .container {
       text-align: center;
-      background: rgba(255, 255, 255, 0.9);
-      padding: 40px;
+      background: rgba(255, 255, 255, 0.92);
+      padding: 30px;
       border-radius: 18px;
-      box-shadow: 0 0 30px rgba(255, 204, 0, 0.6);
-      width: 320px;
-      backdrop-filter: blur(4px);
+      box-shadow: 0 0 30px rgba(255, 204, 0, 0.5);
+      width: 90%;
+      max-width: 350px;
+      backdrop-filter: blur(6px);
       animation: pop 0.8s ease;
+      margin: 20px;
     }
 
     @keyframes pop {
@@ -47,10 +54,11 @@
     h2 {
       color: #ff6f00;
       margin-bottom: 10px;
+      font-size: 1.4rem;
     }
 
     p {
-      font-size: 15px;
+      font-size: 0.95rem;
       color: #6d4c41;
     }
 
@@ -58,7 +66,8 @@
       padding: 12px;
       border-radius: 8px;
       border: 1px solid #aaa;
-      width: 250px;
+      width: 100%;
+      max-width: 250px;
       font-size: 16px;
       margin-top: 10px;
     }
@@ -75,12 +84,15 @@
       font-weight: bold;
       box-shadow: 0 4px 10px rgba(255, 193, 7, 0.4);
       transition: 0.2s;
+      width: 100%;
+      max-width: 200px;
     }
 
     button:hover {
       background: #ffb300;
       transform: translateY(-2px);
     }
+
   </style>
 </head>
 
