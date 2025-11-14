@@ -1,223 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>For You... 💛</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #fff9c4, #ffe082, #ffecb3);
-      overflow-x: hidden;
-      color: #4e342e;
-    }
+<meta charset="UTF-8">
+<title>For You 💛</title>
 
-    /* Glowing hearts floating */
-    .float-heart {
-      position: fixed;
-      bottom: -20px;
-      color: #ff6f61;
-      font-size: 22px;
-      animation: floatUp 7s linear infinite;
-      opacity: 0.8;
-    }
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
 
-    @keyframes floatUp {
-      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-      100% { transform: translateY(-1000px) rotate(25deg); opacity: 0; }
-    }
+<style>
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #fff8c6, #ffe082, #ffe7a1);
+    overflow-x: hidden;
+  }
 
-    /* Main container */
-    .container {
-      max-width: 700px;
-      margin: 50px auto;
-      background: rgba(255,255,255,0.9);
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 0 25px rgba(255,193,7,0.5);
-      backdrop-filter: blur(4px);
-      animation: pop 0.8s ease-out;
-    }
+  /* MUSIC BUTTON */
+  #music-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #ffca28;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255, 193, 7, 0.4);
+    z-index: 999;
+  }
 
-    @keyframes pop {
-      0% { transform: scale(0.8); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
-    }
+  /* MAIN CONTAINER */
+  .container {
+    max-width: 850px;
+    margin: 40px auto;
+    background: rgba(255,255,255,0.9);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(255,193,7,0.5);
+  }
 
-    .title {
-      text-align: center;
-      font-size: 28px;
-      font-weight: bold;
-      color: #ff6f00;
-      margin-bottom: 30px;
-    }
+  /* TITLE */
+  .title {
+    text-align: center;
+    font-size: 32px;
+    color: #ff6f00;
+    font-weight: bold;
+  }
 
-    /* Typing effect */
-    .typing {
-      font-size: 18px;
-      white-space: pre-wrap;
-      border-right: 3px solid #ff6f00;
-      width: 100%;
-      overflow: hidden;
-      animation: typing 5s steps(100), blink 0.75s infinite step-end alternate;
-    }
+  /* SLIDESHOW */
+  .slideshow {
+    margin-top: 30px;
+    text-align: center;
+  }
+  .slideshow img {
+    width: 90%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(255,193,7,0.4);
+    animation: fade 2s ease-in-out;
+  }
+  @keyframes fade { from{opacity:0;} to{opacity:1;} }
 
-    @keyframes typing {
-      from { width: 0; }
-      to { width: 100%; }
-    }
+  /* HANDWRITTEN LETTER */
+  .letter {
+    margin-top: 40px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 26px;
+    line-height: 1.5;
+    color: #5d4037;
+    white-space: pre-wrap;
+    animation: handwritten 7s steps(200) 1;
+    overflow: hidden;
+    border-right: 3px solid #ffb300;
+  }
 
-    @keyframes blink {
-      50% { border-color: transparent; }
-    }
+  @keyframes handwritten {
+    from { width: 0; }
+    to { width: 100%; }
+  }
 
-    .section {
-      margin-top: 30px;
-      background: #fff8e1;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 0 15px rgba(255,193,7,0.3);
-      animation: fadeIn 1.5s ease;
-    }
+  /* HEARTBEAT */
+  .heartbeat {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 50px;
+    animation: beat 1.2s infinite;
+  }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+  @keyframes beat {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+  }
 
-    .final-btn {
-      display: block;
-      margin: 40px auto 0;
-      text-align: center;
-      background: #ffca28;
-      padding: 15px 25px;
-      border-radius: 12px;
-      font-size: 18px;
-      color: #4e342e;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
-      box-shadow: 0 6px 15px rgba(255,193,7,0.4);
-      text-decoration: none;
-    }
+  /* BUTTON */
+  .hate-btn {
+    display: block;
+    margin: 40px auto;
+    padding: 15px 25px;
+    background: #ffb300;
+    border-radius: 12px;
+    color: #4e342e;
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 6px 15px rgba(255,193,7,0.4);
+  }
 
-    .final-btn:hover {
-      background: #ffb300;
-      transform: translateY(-3px);
-    }
-  </style>
+  .hate-btn:hover {
+    background: #ffa000;
+    transform: scale(1.05);
+  }
+
+  /* SPARKLES / BUTTERFLIES */
+  .particle {
+    position: fixed;
+    animation: floatUp 8s linear infinite;
+    opacity: 0.8;
+  }
+
+  @keyframes floatUp {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-1200px); opacity: 0; }
+  }
+
+  /* CUTE YELLOW GIF */
+  .gif {
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .gif img {
+    width: 180px;
+  }
+
+</style>
 </head>
 
 <body>
 
-  <!-- Floating hearts -->
-  <script>
-    function createHeart() {
-      const heart = document.createElement("div");
-      heart.className = "float-heart";
-      heart.innerText = "💛";
-      heart.style.left = Math.random() * window.innerWidth + "px";
-      heart.style.fontSize = (20 + Math.random() * 20) + "px";
-      document.body.appendChild(heart);
-      setTimeout(() => heart.remove(), 7000);
+<!-- BACKGROUND MUSIC -->
+<audio id="bg-music" loop>
+  <source src="https://files.catbox.moe/5y2q5l.mp3" type="audio/mp3">
+</audio>
+
+<div id="music-btn">🎵</div>
+
+<script>
+  const music = document.getElementById("bg-music");
+  const musicBtn = document.getElementById("music-btn");
+
+  musicBtn.onclick = () => {
+    if (music.paused) {
+      music.play();
+      musicBtn.innerHTML = "🔊";
+    } else {
+      music.pause();
+      musicBtn.innerHTML = "🎵";
     }
-    setInterval(createHeart, 700);
+  };
+</script>
+
+<!-- PARTICLES -->
+<script>
+  function createParticle() {
+    const p = document.createElement("div");
+    p.className = "particle";
+    p.innerHTML = Math.random() > 0.5 ? "🦋" : "✨";
+    p.style.left = Math.random() * window.innerWidth + "px";
+    p.style.bottom = "-20px";
+    p.style.fontSize = (20 + Math.random() * 20) + "px";
+    document.body.appendChild(p);
+    setTimeout(() => p.remove(), 8000);
+  }
+  setInterval(createParticle, 500);
+</script>
+
+<div class="container">
+
+  <div class="title">💛 For You… Even If You’re Angry Enough to Kill Me 💛</div>
+
+  <!-- CUTE GIF -->
+  <div class="gif">
+    <img src="https://media.tenor.com/-QJ11d0GQIMAAAAj/bubu-dudu-love.gif">
+  </div>
+
+  <!-- SLIDESHOW -->
+  <div class="slideshow">
+    <img id="slideImg" src="photo1.jpeg">
+  </div>
+
+  <script>
+    const slides = ["photo1.jpeg", "photo2.jpg", "photo3.jpg", "photo4.jpg"];
+    let idx = 0;
+
+    setInterval(() => {
+      idx = (idx + 1) % slides.length;
+      document.getElementById("slideImg").src = slides[idx];
+    }, 2500);
   </script>
 
-  <div class="container">
-    <div class="title">💛 For You… Even If You're Angry Enough to Kill Me 💛</div>
+  <!-- HANDWRITTEN LETTER -->
+  <div class="letter">
+Dear Juliet,
 
-    <div class="typing" id="typing-text">
-      Wait… 
-      If you’re seeing this page,
-      it means you actually typed the password…
-      
-      That alone means something.
-      And before you scroll…
+I know you're angry.
+Not normal angry.
+Like "I will break your head" angry.
 
-      I want to say this properly.
-    </div>
+And honestly?
+You have every right.
 
-    <div class="section">
-      <h3>💛 I Messed Up</h3>
-      <p>
-        The truth is… I hurt you.  
-        Not once. Not twice.  
-        Bro I’ve probably done Ph.D. level mistakes at this point.  
-        You had every reason to be angry…  
-        Every reason to ignore me…  
-        Every reason to hate me.  
-        <br><br>
-        And still… here you are.
-      </p>
-    </div>
+I messed up.
+I slipped.
+I disrespected you.
+I hurt you.
+And if I could undo every moment that made you feel less valued,
+I swear I would.
 
-    <div class="section">
-      <h3>💛 You Didn’t Deserve My Immaturity</h3>
-      <p>
-        You deserved respect.  
-        You deserved effort.  
-        You deserved peace.  
-        <br>
-        Instead, I gave you stress.  
-        I gave you frustration.  
-        I gave you reasons to doubt me.  
-        <br><br>
-        That’s on me.  
-        Fully on me.  
-      </p>
-    </div>
+But I also want you to know this…
 
-    <div class="section">
-      <h3>💛 But Listen… Just Once</h3>
-      <p>
-        No excuses.  
-        No justifications.  
-        No gaslighting.  
-        No “but you did this… you did that”.  
-        <br><br>
-        THIS IS ME SAYING:
-        <br>
-        I am sorry.  
-        From my heart.  
-        From the stupid brain that caused all this.  
-        From the version of me that is still learning how not to be an idiot.
-      </p>
-    </div>
+I never meant to lose you.
+I never meant to break what we had.
+And I'm standing here,
+stupid, emotional, guilty,
+still hoping you’ll give me that one last chance.
 
-    <div class="section">
-      <h3>💛 I Don’t Want to Lose You</h3>
-      <p>
-        Not as Juliet.  
-        Not as Jyoti.  
-        Not as the girl who makes fun of me.  
-        Not as the girl who gets angry but still cares.  
-        <br><br>
-        I don’t want to lose YOU.  
-        The real you.  
-        The sweet, stubborn, dramatic, firecracker you.  
-      </p>
-    </div>
+Because losing you?
+Feels worse than anything else.
 
-    <div class="section">
-      <h3>💛 Last Thing… Then I’ll Shut Up</h3>
-      <p>
-        I’m not asking you to forgive me right now.  
-        I’m not asking you to smile instantly.  
-        I’m not asking you to forget everything.  
-        <br><br>
-        I JUST WANT ONE THING:
-        <br>
-        A chance.  
-        A real one.  
-        To show I can treat you the way you deserve.  
-      </p>
-    </div>
-
-    <a class="final-btn" href="https://wa.me/91XXXXXXXXXX?text=Fine%20I%27m%20talking%20to%20you">Okay… let's talk 💛</a>
-
+I'm sorry.
+For everything. 💛
   </div>
+
+  <!-- HEARTBEAT -->
+  <div class="heartbeat">💛</div>
+
+  <!-- IF YOU STILL HATE ME BUTTON -->
+  <div class="hate-btn" onclick="hateTap()">Tap here if you still hate me 😭</div>
+
+  <script>
+    let tapCount = 0;
+    function hateTap() {
+      tapCount++;
+      if (tapCount === 1) alert("Okay okay I deserve it 😭");
+      if (tapCount === 2) alert("But at least talk to me na, please? 💛");
+      if (tapCount === 3) alert("Fine… break my head… but also forgive me 🥺💛");
+      if (tapCount === 4) window.location.href = "https://wa.me/91XXXXXXXXXX?text=Fine%20I'm%20talking%20to%20you";
+    }
+  </script>
+
+</div>
 
 </body>
 </html>
